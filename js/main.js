@@ -4,16 +4,220 @@
 
 
 /*---Variables---*/
-const hand = [];
-let deck = ["dA","dQ","dK","dJ","d10","d09","d08",
-"d07","d06","d05","d04","d03","d02","hA","hQ","hK",
-"hJ","h10","h09","h08","h07","h06","h05","h04","h03",
-"h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06",
-"c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09",
-"s08","s07","s06","s05","s04","s03","s02"];
+let deck = [
+  {
+      name: "dA",
+      value: 11,
+  },
+  {
+      name: "dQ",
+      value: 10,
+  },
+  {
+      name: "dK",
+      value: 10,
+  },
+  {
+      name: "dJ",
+      value: 10,
+  },
+  {
+      name: "d10",
+      value: 10,
+  },
+  {
+      name: "d09",
+      value: 9,
+  },
+  {
+      name: "d08",
+      value: 8,
+  },
+  {
+      name: "d07",
+      value: 7,
+  },
+  {
+      name: "d06",
+      value: 6,
+  },
+  {
+      name: "d05",
+      value: 5,
+  },
+  {
+      name: "d04",
+      value: 4,
+  },
+  {
+      name: "d03",
+      value: 3,
+  },
+  {
+      name: "d02",
+      value: 2,
+  },
+  {
+      name: "hA",
+      value: 11,
+  },
+  {
+      name: "hQ",
+      value: 10,
+  },
+  {
+      name: "hK",
+      value: 10,
+  },
+  {
+      name: "hJ",
+      value: 10,
+  },
+  {
+      name: "h10",
+      value: 10,
+  },
+  {
+      name: "h09",
+      value: 9,
+  },
+  {
+      name: "h08",
+      value: 8,
+  },
+  {
+      name: "h07",
+      value: 7,
+  },
+  {
+      name: "h06",
+      value: 6,
+  },
+  {
+      name: "h05",
+      value: 5,
+  },
+  {
+      name: "h04",
+      value: 4,
+  },
+  {
+      name: "h03",
+      value: 3,
+  },
+  {
+      name: "h02",
+      value: 2,
+  },
+  {
+      name: "cA",
+      value: 11,
+  },
+  {
+      name: "cQ",
+      value: 10,
+  },
+  {
+      name: "cK",
+      value: 10,
+  },
+  {
+      name: "cJ",
+      value: 10,
+  },
+  {
+      name: "c10",
+      value: 10,
+  },
+  {
+      name: "c09",
+      value: 9,
+  },
+  {
+      name: "c08",
+      value: 8,
+  },
+  {
+      name: "c07",
+      value: 7,
+  },
+  {
+      name: "c06",
+      value: 6,
+  },
+  {
+      name: "c05",
+      value: 5,
+  },
+  {
+      name: "c04",
+      value: 4,
+  },
+  {
+      name: "c03",
+      value: 3,
+  },
+  {
+      name: "c02",
+      value: 2,
+  },
+  {
+      name: "sA",
+      value: 11,
+  },
+  {
+      name: "sQ",
+      value: 10,
+  },
+  {
+      name: "sK",
+      value: 10,
+  },
+  {
+      name: "sJ",
+      value: 10,
+  },
+  {
+      name: "s10",
+      value: 10,
+  },
+  {
+      name: "s09",
+      value: 9,
+  },
+  {
+      name: "s08",
+      value: 8,
+  },
+  {
+      name: "s07",
+      value: 7,
+  },
+  {
+      name: "s06",
+      value: 6,
+  },
+  {
+      name: "s05",
+      value: 5,
+  },
+  {
+      name: "s04",
+      value: 4,
+  },
+  {
+      name: "s03",
+      value: 3,
+  },
+  {
+      name: "s02",
+      value: 2,
+  }
+];
 
 
-   //vaires state from start to shuffle
+
+
 
 
 
@@ -30,12 +234,43 @@ let deck = ["dA","dQ","dK","dJ","d10","d09","d08",
 
 
 /*---Functions---*/
-const getSelectedCard = () => deck.splice(Math.floor(Math.random()*deck.length),1)
+
+
+var dealerHand = [];
+var playerHand = [];
+function getSelectedCard(){
+  return deck.splice(Math.floor(Math.random()*deck.length),1)
+}
+
+selectedCard = getSelectedCard();
+dealerHand.push(selectedCard[0])
+
+selectedCard = getSelectedCard();
+dealerHand.push(selectedCard[0])
+console.log(dealerHand);
+
+
+
+selectedCard = getSelectedCard();
+playerHand.push(selectedCard[0])
+
+selectedCard = getSelectedCard();
+playerHand.push(selectedCard[0])
+console.log(playerHand);
+
+
+
+// selectedCard = getSelectedCard();
+//   hand.push(selectedCard[0])
+// console.log(hand);
+
+
+
+
+
 
 
 // function init() {
-
-
 
 //     render();
 // }
@@ -43,17 +278,7 @@ const getSelectedCard = () => deck.splice(Math.floor(Math.random()*deck.length),
 
 
 
-let selectedCard = getSelectedCard();
-  hand.push(selectedCard[0])
-console.log(hand);
 
-selectedCard = getSelectedCard();
-hand.push(selectedCard[0])
-console.log(hand);
+
 
 //draw a new random card
-hand.push(selectedCard[0])
-console.log(hand);
-
-console.log(deck);
-
