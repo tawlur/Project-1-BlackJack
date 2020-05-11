@@ -214,12 +214,8 @@ let deck = [
       value: 2,
   }
 ];
-
-
-
-
-
-
+let dealerHand;
+let playerHand;
 
 
 /*---Cached Element References---*/
@@ -228,35 +224,45 @@ let deck = [
 
 
 /*---Event Listeners---*/
-
-
+document.querySelector(".start").addEventListener('click', init);
 
 
 
 /*---Functions---*/
+//init()
 
+function init() {
+  dealerHand = [];
+  playerHand = [];
+  dealCards()
+  console.log(dealerHand);
+}
 
-var dealerHand = [];
-var playerHand = [];
 function getSelectedCard(){
   return deck.splice(Math.floor(Math.random()*deck.length),1)
 }
 
-selectedCard = getSelectedCard();
-dealerHand.push(selectedCard[0])
+function dealCards() {
+  selectedCard = getSelectedCard();
+  dealerHand.push(selectedCard[0])
 
-selectedCard = getSelectedCard();
-dealerHand.push(selectedCard[0])
-console.log(dealerHand);
+  selectedCard = getSelectedCard();
+  dealerHand.push(selectedCard[0])
 
+  selectedCard = getSelectedCard();
+  playerHand.push(selectedCard[0])
 
+  selectedCard = getSelectedCard();
+  playerHand.push(selectedCard[0])
+}
 
-selectedCard = getSelectedCard();
-playerHand.push(selectedCard[0])
+function render() {
 
-selectedCard = getSelectedCard();
-playerHand.push(selectedCard[0])
-console.log(playerHand);
+    
+    const appendCard = document.createElement('div');
+    appendCard.className = `card large ${card[1]}`;
+    playArea.appendChild(appendCard);
+}
 
 
 
