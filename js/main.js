@@ -219,12 +219,13 @@ let playerHand;
 
 
 /*---Cached Element References---*/
-
+const playArea = document.getElementById('playArea');
 
 
 
 /*---Event Listeners---*/
 document.querySelector(".start").addEventListener('click', init);
+//playArea.addEventListener('click', )
 
 
 
@@ -257,40 +258,17 @@ function dealCards() {
 }
 
 function render() {
-
-    
-    const appendCard = document.createElement('div');
-    appendCard.className = `card large ${card[1]}`;
-    playArea.appendChild(appendCard);
-}
-
-if (playerHand[0]) {
-  const appendCard = document.createElement('div');
-  appendCard.className = `card large ${card[1]}`;
-  playArea.appendChild(appendCard);
+    playArea.innerHTML = '';
+    dealerHand.forEach(function(card) {
+        if (dealerHand[0]) {
+            const appendCard = document.createElement('div');
+            appendCard.className = `card large ${dealerHand[1]}`;
+            playArea.appendChild(appendCard);
+        }
+    });
 }
 
 
 
-// selectedCard = getSelectedCard();
-//   hand.push(selectedCard[0])
-// console.log(hand);
 
 
-
-
-
-
-
-// function init() {
-
-//     render();
-// }
-
-
-
-
-
-
-
-//draw a new random card
