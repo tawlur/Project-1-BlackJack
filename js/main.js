@@ -219,13 +219,13 @@ let playerHand;
 
 
 /*---Cached Element References---*/
-const playArea = document.getElementById('playArea');
+const dealerPlayArea = document.getElementById('dealerPlayArea');
+const playerPlayArea = document.getElementById('playerPlayArea');
 
 
 
 /*---Event Listeners---*/
 document.querySelector(".start").addEventListener('click', init);
-//playArea.addEventListener('click', )
 
 
 
@@ -258,17 +258,37 @@ function dealCards() {
 }
 
 function render() {
-    playArea.innerHTML = '';
-    dealerHand.forEach(function(card) {
-        if (dealerHand[0]) {
+    dealerPlayArea.innerHTML = '';
+    dealerHand.forEach(function(card, idx) {
+     console.log(card.name);
             const appendCard = document.createElement('div');
-            appendCard.className = `card large ${dealerHand[1]}`;
-            playArea.appendChild(appendCard);
-        }
+            appendCard.className = `card large ${card.name}`;
+            dealerPlayArea.appendChild(appendCard);
+            if (idx === 0) {
+               appendCard.className = `card large back`;
+            }
     });
+
+    playerPlayArea.innerHTML = '';
+    playerHand.forEach(function(card, idx) {
+     console.log(card.name);
+            const appendCard = document.createElement('div');
+            appendCard.className = `card large ${card.name}`;
+            playerPlayArea.appendChild(appendCard);
+    });
+}
+
+function dealerHit() {
+    selectedCard = getSelectedCard();
+    dealerHand.push(selectedCard[0])
+}
+
+function playerHit() {
+    selectedCard = getSelectedCard();
+    playerHand.push(selectedCard[0])
 }
 
 
 
-
+// if idx = 0 make class .back 
 
