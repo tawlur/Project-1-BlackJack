@@ -226,6 +226,7 @@ const playerPlayArea = document.getElementById('playerPlayArea');
 
 /*---Event Listeners---*/
 document.querySelector(".start").addEventListener('click', init);
+document.querySelector(".Hit").addEventListener('click', playerHit);
 
 
 
@@ -255,6 +256,7 @@ function dealCards() {
 
   selectedCard = getSelectedCard();
   playerHand.push(selectedCard[0])
+  render();
 }
 
 function render() {
@@ -281,14 +283,19 @@ function render() {
 function dealerHit() {
     selectedCard = getSelectedCard();
     dealerHand.push(selectedCard[0])
+    render();
 }
 
 function playerHit() {
     selectedCard = getSelectedCard();
     playerHand.push(selectedCard[0])
+    render();
 }
 
 
 
-// if idx = 0 make class .back 
+// add array and compare
+//if score is 21 alert BlackJack!
+//if score is > 21 alert you loose!
+//if score is < 21 do nothing.
 
