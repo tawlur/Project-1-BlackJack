@@ -264,6 +264,12 @@ function render() {
     playArea.appendChild(appendCard);
 }
 
+if (playerHand[0]) {
+  const appendCard = document.createElement('div');
+  appendCard.className = `card large ${card[1]}`;
+  playArea.appendChild(appendCard);
+}
+
 
 
 // selectedCard = getSelectedCard();
