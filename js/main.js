@@ -216,7 +216,8 @@ let deck = [
 ];
 let dealerHand;
 let playerHand;
-
+let playerSum;
+let dealerSum;
 
 /*---Cached Element References---*/
 const dealerPlayArea = document.getElementById('dealerPlayArea');
@@ -227,7 +228,7 @@ const playerPlayArea = document.getElementById('playerPlayArea');
 /*---Event Listeners---*/
 document.querySelector(".start").addEventListener('click', init);
 document.querySelector(".Hit").addEventListener('click', playerHit);
-
+document.querySelector(".Stand").addEventListener('click', dealerAutomation);
 
 
 /*---Functions---*/
@@ -236,17 +237,57 @@ document.querySelector(".Hit").addEventListener('click', playerHit);
 function init() {
   dealerHand = [];
   playerHand = [];
+    
   dealCards()
-  console.log(dealerHand);
+  
+    console.log(dealerHand);
 }
 
-function sumHand() {
+function sumPlayerHand() {
+    playerSum = playerHand.reduce(function(a, b){
+        return a + b.value;
+    }, 0);
+    console.log(playerSum);
+      
+      
+  }
+
+  function playerChooseOrLoose() {
+    
+    if (playerSum == 21) {
+      alert("21!");
+    } else if (playerSum >= 22) {
+      alert("BUST");
+    } else {
+     console.log("at least your game worked");
+    }
+  }
+  
+  
+
+  function sumDealerHand() {
     let sum = playerHand.reduce(function(a, b){
         return a + b.value;
     }, 0);
     console.log(sum);
       return sum;
   }
+
+  function dealerAutomation() {
+    
+    if (dealerSum == 21) {
+      alert("Dealer Wins!");
+    } else if (dealerSum >= 22) {
+        alert("Dealer BUST");
+    } else if (dealerSum >= 17) {
+      dealerHit()
+    } else {
+        console.log("well there");
+    }
+  }
+
+
+
 
 function getSelectedCard(){
   return deck.splice(Math.floor(Math.random()*deck.length),1)
@@ -265,7 +306,7 @@ function dealCards() {
   selectedCard = getSelectedCard();
   playerHand.push(selectedCard[0])
   
-  sumHand();
+  sumPlayerHand();
 
     render();
 }
@@ -278,7 +319,7 @@ function render() {
             appendCard.className = `card large ${card.name}`;
             dealerPlayArea.appendChild(appendCard);
             if (idx === 0) {
-               appendCard.className = `card large back`;
+            appendCard.className = `card large back`;
             }
     });
 
@@ -294,23 +335,25 @@ function render() {
 function dealerHit() {
     selectedCard = getSelectedCard();
     dealerHand.push(selectedCard[0])
-    render();
+
+        sumDealerHand();
+
+            render();
 }
 
 function playerHit() {
     selectedCard = getSelectedCard();
     playerHand.push(selectedCard[0])
-    sumHand();
-    render();
-}
-
+    
+        sumPlayerHand();
+    
+            render();
+            
+                playerChooseOrLoose();
+        }
+        
 
     
-    // if (sum < 21) {
-    //     prompt("game on");
-    // }  
-
-// let number = sumHand();
 
 // function checkWinner(sum) {
 // if (sum === 21){
