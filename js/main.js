@@ -240,6 +240,14 @@ function init() {
   console.log(dealerHand);
 }
 
+function sumHand() {
+    let sum = playerHand.reduce(function(a, b){
+        return a + b.value;
+    }, 0);
+    console.log(sum);
+      return sum;
+  }
+
 function getSelectedCard(){
   return deck.splice(Math.floor(Math.random()*deck.length),1)
 }
@@ -256,7 +264,10 @@ function dealCards() {
 
   selectedCard = getSelectedCard();
   playerHand.push(selectedCard[0])
-  render();
+  
+  sumHand();
+
+    render();
 }
 
 function render() {
@@ -289,8 +300,50 @@ function dealerHit() {
 function playerHit() {
     selectedCard = getSelectedCard();
     playerHand.push(selectedCard[0])
+    sumHand();
     render();
 }
+
+
+    
+    // if (sum < 21) {
+    //     prompt("game on");
+    // }  
+
+// let number = sumHand();
+
+// function checkWinner(sum) {
+// if (sum === 21){
+//         alert(" Blackjack ")
+
+//     };
+// }
+// i want to run sum hand every time i deal it. Take the retun value to decide 
+//Take tue result of check sum and check winner. 
+
+//which function to follow with. 
+
+// function winBustOrPlay() {
+    
+//     // Getting sum of numbers
+//     let sum = playerHand.reduce(function(a, b){
+//         return a + b;
+//     }, 0);
+// }
+//     console.log(sum);
+
+// console.log(playerHand);
+
+
+// let array = [1, 2, 3, 4, 5];
+    
+// // Getting sum of numbers
+// let sum = array.reduce(function(a, b){
+//     return a + b;
+// }, 0);
+
+// console.log(sum); // Prints: 15
+
 
 
 
