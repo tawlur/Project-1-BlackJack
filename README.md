@@ -1,8 +1,6 @@
 # Memory Game
 
-Lorem ipsum
-When I was 7 i grew up playing blackjack. 
-
+I've always enjoyed the game of Blackjack
 
 ## Screenshots 
 

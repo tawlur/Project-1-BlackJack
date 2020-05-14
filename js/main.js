@@ -287,13 +287,13 @@ function dealerAutomation() {
       console.log(dealerSum)
         dealerHit();
     
-    } else {
+    } else if (dealerSum > playerSum) {
+        alert("Dealer WIN!")
         console.log(dealerSum)
 
-        
-
-        console.log("I don't know how to stop this");
-    }
+        } else {
+            alert("PLAYER WIN")
+        }
   }
 
 
