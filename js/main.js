@@ -218,6 +218,7 @@ let dealerHand;
 let playerHand;
 let playerSum;
 let dealerSum;
+let flipCard;
 
 /*---Cached Element References---*/
 const dealerPlayArea = document.getElementById('dealerPlayArea');
@@ -237,6 +238,7 @@ document.querySelector(".Stand").addEventListener('click', dealerHit);
 function init() {
     dealerHand = [];
     playerHand = [];
+    flipCard = false;
     
     dealCards()
     
@@ -251,7 +253,7 @@ function sumPlayerHand() {
 }
 
 function sumDealerHand() {
-    dealerSum = playerHand.reduce(function(a, b){
+    dealerSum = dealerHand.reduce(function(a, b){
         return a + b.value;
     }, 0);
     console.log(dealerSum);
@@ -272,15 +274,24 @@ function dealerAutomation() {
     console.log('dealer sum', dealerSum);
     
     if (dealerSum == 21) {
-      alert("Dealer Wins!");
-      return;
+        console.log(dealerSum)
+
+        alert("Dealer Wins!");
+      
     } else if (dealerSum >= 22) {
+        console.log(dealerSum)
+
         alert("Dealer BUST");
-        return;
+       
     } else if (dealerSum <= 17) {
-      dealerHit();
+      console.log(dealerSum)
+        dealerHit();
     
     } else {
+        console.log(dealerSum)
+
+        
+
         console.log("I don't know how to stop this");
     }
   }
@@ -311,13 +322,14 @@ function dealCards() {
 }
 
 function render() {
+    console.log(dealerHand);
     dealerPlayArea.innerHTML = '';
     dealerHand.forEach(function(card, idx) {
      console.log(card.name);
             const appendCard = document.createElement('div');
             appendCard.className = `card large ${card.name}`;
             dealerPlayArea.appendChild(appendCard);
-            if (idx === 0) {
+            if (idx === 0 && flipCard === false) {
             appendCard.className = `card large back`;
             }
     });
@@ -332,6 +344,7 @@ function render() {
 }
 
 function dealerHit() {
+    flipCard = true;
     selectedCard = getSelectedCard();
     dealerHand.push(selectedCard[0]);
 
