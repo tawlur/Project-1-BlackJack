@@ -1,6 +1,3 @@
-/*---Constants---*/
-// const dealer
-// const player
 
 
 /*---Variables---*/
@@ -233,7 +230,6 @@ document.querySelector(".Stand").addEventListener('click', dealerHit);
 
 
 /*---Functions---*/
-//init()
 
 function init() {
     dealerHand = [];

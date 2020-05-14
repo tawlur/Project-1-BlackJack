@@ -1,10 +1,10 @@
-# Memory Game
+# Blackjack Card Game
 
-I've always enjoyed the game of Blackjack
+I've always enjoyed the game of Blackjack.
 
 ## Screenshots 
 
-![Blackjack Game Screenshot](Game url goes here)
+![Blackjack Game Screenshot](https://i.imgur.com/umbRjai.png)
 
 ## Technologies Used
 
@@ -14,18 +14,15 @@ I've always enjoyed the game of Blackjack
 
 * JavaScript
 
-* 
-
 
 ## Getting Started
 
-To play this game, click [here] (link goes here)
+To play this game, click [BLACKJACK](https://tawlur.github.io/Project-1-BlackJack/).
 
 ## Next Steps
 
-1. allow useres to enter names
-2. do the other things
-3. third thing
-
+1. Present card count for Player
+2. Present card count for Dealer
+3. Improved alert window 
 
 
