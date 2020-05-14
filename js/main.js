@@ -235,11 +235,11 @@ document.querySelector(".Stand").addEventListener('click', dealerHit);
 //init()
 
 function init() {
-  dealerHand = [];
-  playerHand = [];
+    dealerHand = [];
+    playerHand = [];
     
-  dealCards()
-  
+    dealCards()
+    
     console.log(dealerHand);
 }
 
@@ -248,29 +248,29 @@ function sumPlayerHand() {
         return a + b.value;
     }, 0);
     console.log(playerSum);
-  }
-  
-  function sumDealerHand() {
+}
+
+function sumDealerHand() {
     dealerSum = playerHand.reduce(function(a, b){
         return a + b.value;
     }, 0);
     console.log(dealerSum);
-  }
+}
 
-  function playerChooseOrLoose() {
-    sumDealerHand();
+function playerChooseOrLoose() {
     if (playerSum == 21) {
-      alert("21!");
+        alert("21!");
     } else if (playerSum >= 22) {
-      alert("BUST");
+        alert("BUST");
     } else {
-     console.log("at least your game worked");
+        console.log("at least your game worked");
     }
-  }
+}
 
-  function dealerAutomation() {
-      console.log('dealer sum', dealerSum);
-
+function dealerAutomation() {
+    sumDealerHand();
+    console.log('dealer sum', dealerSum);
+    
     if (dealerSum == 21) {
       alert("Dealer Wins!");
       return;
