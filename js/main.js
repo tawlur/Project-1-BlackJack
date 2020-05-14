@@ -228,7 +228,7 @@ const playerPlayArea = document.getElementById('playerPlayArea');
 /*---Event Listeners---*/
 document.querySelector(".start").addEventListener('click', init);
 document.querySelector(".Hit").addEventListener('click', playerHit);
-document.querySelector(".Stand").addEventListener('click', dealerAutomation);
+document.querySelector(".Stand").addEventListener('click', dealerHit);
 
 
 /*---Functions---*/
@@ -248,12 +248,17 @@ function sumPlayerHand() {
         return a + b.value;
     }, 0);
     console.log(playerSum);
-      
-      
+  }
+  
+  function sumDealerHand() {
+    dealerSum = playerHand.reduce(function(a, b){
+        return a + b.value;
+    }, 0);
+    console.log(dealerSum);
   }
 
   function playerChooseOrLoose() {
-    
+    sumDealerHand();
     if (playerSum == 21) {
       alert("21!");
     } else if (playerSum >= 22) {
@@ -262,27 +267,21 @@ function sumPlayerHand() {
      console.log("at least your game worked");
     }
   }
-  
-  
-
-  function sumDealerHand() {
-    let sum = playerHand.reduce(function(a, b){
-        return a + b.value;
-    }, 0);
-    console.log(sum);
-      return sum;
-  }
 
   function dealerAutomation() {
-    
+      console.log('dealer sum', dealerSum);
+
     if (dealerSum == 21) {
       alert("Dealer Wins!");
+      return;
     } else if (dealerSum >= 22) {
         alert("Dealer BUST");
-    } else if (dealerSum >= 17) {
-      dealerHit()
+        return;
+    } else if (dealerSum <= 17) {
+      dealerHit();
+    
     } else {
-        console.log("well there");
+        console.log("I don't know how to stop this");
     }
   }
 
@@ -306,7 +305,7 @@ function dealCards() {
   selectedCard = getSelectedCard();
   playerHand.push(selectedCard[0])
   
-  sumPlayerHand();
+    sumPlayerHand();
 
     render();
 }
@@ -334,24 +333,31 @@ function render() {
 
 function dealerHit() {
     selectedCard = getSelectedCard();
-    dealerHand.push(selectedCard[0])
+    dealerHand.push(selectedCard[0]);
 
-        sumDealerHand();
+    sumDealerHand();
 
-            render();
+    render();
+    
+    dealerAutomation();
+
 }
 
 function playerHit() {
     selectedCard = getSelectedCard();
     playerHand.push(selectedCard[0])
     
-        sumPlayerHand();
+    sumPlayerHand();
     
-            render();
+    render();
             
-                playerChooseOrLoose();
-        }
+    playerChooseOrLoose();
+}
         
+
+                
+
+
 
     
 
