@@ -1,5 +1,3 @@
-
-
 /*---Variables---*/
 
 let deck = [
@@ -224,13 +222,11 @@ const dealerPlayArea = document.getElementById('dealerPlayArea');
 const playerPlayArea = document.getElementById('playerPlayArea');
 const gameStatusReport = document.getElementById('gameStatusReport');
 
-
 /*---Event Listeners---*/
 
 document.querySelector(".start").addEventListener('click', init);
-document.querySelector(".Hit").addEventListener('click', playerHit);
-document.querySelector(".Stand").addEventListener('click', dealerHit);
-
+document.querySelector(".hit").addEventListener('click', playerHit);
+document.querySelector(".stand").addEventListener('click', dealerHit);
 
 /*---Functions---*/
 
@@ -239,73 +235,53 @@ function init() {
     playerHand = [];
     flipCard = false;
     gameStatusReport.innerHTML = '';
-
-    
     dealCards()
-    
-    console.log(dealerHand);
 }
 
 function sumPlayerHand() {
     playerSum = playerHand.reduce(function(a, b){
         return a + b.value;
     }, 0);
-    console.log(playerSum);
 }
 
 function sumDealerHand() {
     dealerSum = dealerHand.reduce(function(a, b){
         return a + b.value;
     }, 0);
-    console.log(dealerSum);
 }
 
 function playerChooseOrLoose() {
     if (playerSum == 21) {
         gameStatusReport.innerHTML = '21';
+
     } else if (playerSum >= 22) {
-        gameStatusReport.innerHTML = 'Bust';
+        gameStatusReport.innerHTML = 'You Bust';
 
     } else {
-        console.log("End Choose");
     }
 }
 
 function dealerAutomation() {
     sumDealerHand();
-    console.log('dealer sum', dealerSum);
     
     if (dealerSum == 21) {
-        console.log(dealerSum)
+        gameStatusReport.innerHTML = 'Dealer Wins';
 
-        gameStatusReport.innerHTML = 'Dealer WINS';
-
-        
     } else if (dealerSum >= 22) {
-        console.log(dealerSum)
-
         gameStatusReport.innerHTML = 'Dealer Bust';
 
-       
     } else if (dealerSum <= 17) {
-      console.log(dealerSum)
         dealerHit();
     
     } else if (dealerSum > playerSum) {
-        gameStatusReport.innerHTML = 'Dealer WINS';
-
-        console.log(dealerSum)
+        gameStatusReport.innerHTML = 'Dealer Wins';
 
     } else {
-        gameStatusReport.innerHTML = 'YOU WIN';
-
+        gameStatusReport.innerHTML = 'You Win';
     }
 }
 
-
-
-
-function getSelectedCard(){
+function getSelectedCard() {
   return deck.splice(Math.floor(Math.random()*deck.length),1)
 }
 
@@ -328,24 +304,24 @@ function dealCards() {
 }
 
 function render() {
-    console.log(dealerHand);
+ //   console.log(dealerHand);
     dealerPlayArea.innerHTML = '';
     dealerHand.forEach(function(card, idx) {
-     console.log(card.name);
-            const appendCard = document.createElement('div');
-            appendCard.className = `card large ${card.name}`;
-            dealerPlayArea.appendChild(appendCard);
-            if (idx === 0 && flipCard === false) {
-            appendCard.className = `card large back`;
-            }
+    //    console.log(card.name);
+        const appendCard = document.createElement('div');
+        appendCard.className = `card large ${card.name}`;
+        dealerPlayArea.appendChild(appendCard);
+        if (idx === 0 && flipCard === false) {
+        appendCard.className = `card large back`;
+        }
     });
 
     playerPlayArea.innerHTML = '';
     playerHand.forEach(function(card, idx) {
-     console.log(card.name);
-            const appendCard = document.createElement('div');
-            appendCard.className = `card large ${card.name}`;
-            playerPlayArea.appendChild(appendCard);
+    //    console.log(card.name);
+        const appendCard = document.createElement('div');
+        appendCard.className = `card large ${card.name}`;
+        playerPlayArea.appendChild(appendCard);
     });
 }
 
@@ -374,7 +350,6 @@ function playerHit() {
 }
         
 
-//gameStatusReport.innerHTML = 'this is only a test';
 
 
 

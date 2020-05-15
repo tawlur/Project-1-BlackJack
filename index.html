@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
-        <link rel="stylesheet" href="css/cardstarter.css">
-        <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cardstarter.css">
+    <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
     <title>Black Jack</title>
     <img src="css/scotch.jpg" >
@@ -14,24 +14,22 @@
 
 <body>
     <h1>Blackjack</h1>
-    <h3> Press start to begin</h3>
+    <h3> Press Deal to begin</h3>
 
-<div class="buttons">
-    <button class="start" type="button">Let's Play</button>
+    <div class="buttons">
+        <button class="start" type="button">Deal</button>
+    </div>
 
-</div>
-
-<div class="playArea"> 
-    <div id="dealerPlayArea"></div>
-    <div class="playerButtons">
-    
-        <button class="Hit" type="button">Hit</button>
-        <button class="Stand" type="button">Stand</button>
-
-</div>
-    
-    <div id="playerPlayArea"></div>
-    <div class="cardContainer"></div>
-    <div id="gameStatusReport"></div>
+    <div class="playArea"> 
+        <div id="dealerPlayArea"></div>
+        <div class="playerButtons">
+        <button id="hit" class="hit" type="button">Hit Me</button>
+        <div>      </div>
+        <button id="stand" class="stand" type="button">Stand</button>
+    </div>
+        
+        <div id="playerPlayArea"></div>
+        <div class="cardContainer"></div>
+        <div id="gameStatusReport"></div>
 </body>
 </html>
