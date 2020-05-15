@@ -1,6 +1,7 @@
 
 
 /*---Variables---*/
+
 let deck = [
   {
       name: "dA",
@@ -218,12 +219,14 @@ let dealerSum;
 let flipCard;
 
 /*---Cached Element References---*/
+
 const dealerPlayArea = document.getElementById('dealerPlayArea');
 const playerPlayArea = document.getElementById('playerPlayArea');
-
+const gameStatusReport = document.getElementById('gameStatusReport');
 
 
 /*---Event Listeners---*/
+
 document.querySelector(".start").addEventListener('click', init);
 document.querySelector(".Hit").addEventListener('click', playerHit);
 document.querySelector(".Stand").addEventListener('click', dealerHit);
@@ -235,6 +238,8 @@ function init() {
     dealerHand = [];
     playerHand = [];
     flipCard = false;
+    gameStatusReport.innerHTML = '';
+
     
     dealCards()
     
@@ -257,11 +262,12 @@ function sumDealerHand() {
 
 function playerChooseOrLoose() {
     if (playerSum == 21) {
-        alert("21!");
+        gameStatusReport.innerHTML = '21';
     } else if (playerSum >= 22) {
-        alert("BUST");
+        gameStatusReport.innerHTML = 'Bust';
+
     } else {
-        console.log("at least your game worked");
+        console.log("End Choose");
     }
 }
 
@@ -272,25 +278,29 @@ function dealerAutomation() {
     if (dealerSum == 21) {
         console.log(dealerSum)
 
-        alert("Dealer Wins!");
-      
+        gameStatusReport.innerHTML = 'Dealer WINS';
+
+        
     } else if (dealerSum >= 22) {
         console.log(dealerSum)
 
-        alert("Dealer BUST");
+        gameStatusReport.innerHTML = 'Dealer Bust';
+
        
     } else if (dealerSum <= 17) {
       console.log(dealerSum)
         dealerHit();
     
     } else if (dealerSum > playerSum) {
-        alert("Dealer WIN!")
+        gameStatusReport.innerHTML = 'Dealer WINS';
+
         console.log(dealerSum)
 
-        } else {
-            alert("PLAYER WIN")
-        }
-  }
+    } else {
+        gameStatusReport.innerHTML = 'YOU WIN';
+
+    }
+}
 
 
 
@@ -364,49 +374,7 @@ function playerHit() {
 }
         
 
-                
+//gameStatusReport.innerHTML = 'this is only a test';
 
 
-
-    
-
-// function checkWinner(sum) {
-// if (sum === 21){
-//         alert(" Blackjack ")
-
-//     };
-// }
-// i want to run sum hand every time i deal it. Take the retun value to decide 
-//Take tue result of check sum and check winner. 
-
-//which function to follow with. 
-
-// function winBustOrPlay() {
-    
-//     // Getting sum of numbers
-//     let sum = playerHand.reduce(function(a, b){
-//         return a + b;
-//     }, 0);
-// }
-//     console.log(sum);
-
-// console.log(playerHand);
-
-
-// let array = [1, 2, 3, 4, 5];
-    
-// // Getting sum of numbers
-// let sum = array.reduce(function(a, b){
-//     return a + b;
-// }, 0);
-
-// console.log(sum); // Prints: 15
-
-
-
-
-// add array and compare
-//if score is 21 alert BlackJack!
-//if score is > 21 alert you loose!
-//if score is < 21 do nothing.
 
