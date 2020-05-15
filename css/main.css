@@ -56,4 +56,6 @@ h3 {
     text-shadow: 22px 22px 20px #000000;
 }
 
-#hit 
+.stand {
+    margin-left: 10px;
+}
