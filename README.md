@@ -2,18 +2,17 @@
 
 I've always enjoyed the game of Blackjack.
 
-## Screenshots 
+## Screenshots
 
 ![Blackjack Game Screenshot](https://i.imgur.com/PEFSVVe.png)
 
 ## Technologies Used
 
-* HTML
+- HTML
 
-* CSS
+- CSS
 
-* JavaScript
-
+- JavaScript
 
 ## Getting Started
 
@@ -25,6 +24,4 @@ To play this game, click [BLACKJACK](https://tawlur.github.io/Project-1-BlackJac
 2. Present card count for Dealer
 3. Redesign buttons
 4. Ace 1 or 11 programming
-5. Bet placing 
-
-
+5. Bet placing
